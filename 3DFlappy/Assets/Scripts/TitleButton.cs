@@ -11,6 +11,5 @@ public class TitleButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        int b;
 	}
 }
