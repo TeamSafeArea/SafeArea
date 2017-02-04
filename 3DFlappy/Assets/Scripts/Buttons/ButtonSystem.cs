@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonSystem : MonoBehaviour {
@@ -40,14 +37,15 @@ public class ButtonSystem : MonoBehaviour {
         }
 
         /* 最下段から最上段、またはその反対 */
-        if (nowButton >= buttons.Length)
+        if (nowButton >= buttonsCount)
         {
             nowButton = 0;
         }
         else if (nowButton <= -1)
         {
-            nowButton = buttons.Length-1;
+            nowButton = buttonsCount - 1;
         }
+
         return nowButton;
     }
 
@@ -59,5 +57,11 @@ public class ButtonSystem : MonoBehaviour {
     {
         // 今のボタン番号を選択状態にする
         buttons[now].Select();
+    }
+
+    public int GetNowButton()
+    {
+        // 今のボタン番号を渡す
+        return nowButton;
     }
 }
