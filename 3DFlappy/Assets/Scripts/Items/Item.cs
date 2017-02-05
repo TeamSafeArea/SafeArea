@@ -19,13 +19,27 @@ public class Item : MonoBehaviour
     //初期化
     private void Start()
     {
-
+        ObjectStart();
     }
     
     //更新
     private void Update()
     {
+        ObjectUpdate();
+
         Destroy();
+    }
+
+    //オブジェクト初期化
+    virtual protected void ObjectStart()
+    {
+
+    }
+
+    //オブジェクト更新
+    virtual protected void ObjectUpdate()
+    {
+
     }
 
     //削除処理
