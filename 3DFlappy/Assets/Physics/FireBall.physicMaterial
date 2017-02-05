@@ -7,7 +7,7 @@ PhysicMaterial:
   m_PrefabInternal: {fileID: 0}
   m_Name: FireBall
   dynamicFriction: 0
-  staticFriction: 0.6
+  staticFriction: 0
   bounciness: 1
   frictionCombine: 0
   bounceCombine: 3
