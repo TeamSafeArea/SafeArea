@@ -17,7 +17,7 @@ public class ClickButtons : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(nowButton);
+
     }
 
     public void SelectBySceneName()
