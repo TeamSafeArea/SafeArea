@@ -22,7 +22,8 @@ public class StarScroll_Wall : MonoBehaviour {
 	void Update () {
         Scroll();
         Scaler();
-
+        
+        // 位置を取って、いつ戻るか
         if (fRectPosition.localPosition.y <= 1300) return;
 
         SceneManager.LoadScene("TitleScene");
