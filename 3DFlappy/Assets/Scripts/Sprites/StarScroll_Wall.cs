@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 /* スター〇ォーズ風のスクロール */
 public class StarScroll_Wall : MonoBehaviour {
 
-    RectTransform fRectPosition;
+    RectTransform fRectPosition; // 微妙
     [SerializeField]
     Image[] fStaffNameImage;// スタッフロールの画像
     [SerializeField]
