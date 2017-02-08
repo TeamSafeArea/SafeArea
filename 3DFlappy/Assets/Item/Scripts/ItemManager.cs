@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// アイテム管理者
+/// </summary>
 public class ItemManager : MonoBehaviour {
     [SerializeField]
     Rect m_clamp;
@@ -15,6 +18,11 @@ public class ItemManager : MonoBehaviour {
 	private void Update () {
         Clamp();
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        ObjectDestroy(transform.gameObject, other.transform.tag.Contains("Player"));
+    }
 
     //活動範囲
     private void Clamp() {
