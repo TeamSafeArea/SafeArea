@@ -28,7 +28,7 @@ public class ClickButtons : MonoBehaviour {
                 TitleButton();
                 break;
             case "GamePlayScene":
-
+                SceneManager.LoadScene("TitleScene");
                 break;
             case "StaffRollScene":
                 SceneManager.LoadScene("TitleScene");
