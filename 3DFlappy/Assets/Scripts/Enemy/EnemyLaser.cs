@@ -16,17 +16,17 @@ public class EnemyLaser : MonoBehaviour {
 
     Color m_SpriteColor;    // アルファ値の保存先
     bool m_AlphaUpDown;     // アルファ値の上下のフラグ
-    bool m_ActiveSprite, m_ActiveEffect;    // アクティブ化
+    bool m_ActiveSprite;    // アクティブ化
 
 	// Use this for initialization
 	void Start () {
+        
         m_AttentionSprite = m_AttentionSprite.GetComponent<SpriteRenderer>();
         m_SpriteColor = m_AttentionSprite.color;
         m_SpriteColor.a = 0.01f;
         m_AttentionSprite.color = m_SpriteColor;
 
-        //m_ActiveSprite = true;
-        m_ActiveEffect = false;
+        m_ActiveSprite = false;
 	}
 	
 	// Update is called once per frame
@@ -34,6 +34,10 @@ public class EnemyLaser : MonoBehaviour {
         SpriteAlpha();
 	}
 
+
+    /// <summary>
+    ///  スプライトを表示非表示
+    /// </summary>
     void SpriteAlpha()
     {
         // レーザーが非アクティブなら終了
@@ -74,6 +78,9 @@ public class EnemyLaser : MonoBehaviour {
         m_AttentionSprite.color = m_SpriteColor;
     }
 
+    /// <summary>
+    ///  ここで初期化、これを呼ぶと発射開始
+    /// </summary>
     public void Initialize()
     {
         m_SpriteColor.a = 0.01f;
@@ -81,6 +88,5 @@ public class EnemyLaser : MonoBehaviour {
         m_AttentionSprite.color = m_SpriteColor;
 
         m_ActiveSprite = true;
-        m_ActiveEffect = false;
     }
 }
