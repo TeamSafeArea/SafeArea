@@ -9,11 +9,17 @@ public class EnemyMove : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        GameObject.Find("Laser").GetComponent<EnemyLaser>().Initialize();
 	}
+
+    void Update()
+    {
+        
+    }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+    void FixedUpdate()
+    {
+        GetComponent<Rigidbody>().velocity = new Vector3(-m_MoveSpeed, 0, 0);
+    }
 }

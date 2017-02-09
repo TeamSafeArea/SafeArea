@@ -25,7 +25,7 @@ public class EnemyLaser : MonoBehaviour {
         m_SpriteColor.a = 0.01f;
         m_AttentionSprite.color = m_SpriteColor;
 
-        //m_ActiveSprite = false;
+        //m_ActiveSprite = true;
         m_ActiveEffect = false;
 	}
 	
@@ -37,7 +37,7 @@ public class EnemyLaser : MonoBehaviour {
     void SpriteAlpha()
     {
         // レーザーが非アクティブなら終了
-        //if (!m_ActiveSprite) return;
+        if (!m_ActiveSprite) return;
 
 
         // Laser予告スプライトのアルファ値をとる
@@ -56,7 +56,7 @@ public class EnemyLaser : MonoBehaviour {
         else
         {
             // 出現させたら逆に消していく
-            m_SpriteColor.a -= 0.05f;
+            m_SpriteColor.a -= 0.02f;
         }
 
         // 消滅しきったら
@@ -64,10 +64,23 @@ public class EnemyLaser : MonoBehaviour {
         {
             // レーザー本体をアクティブ化
             m_LaserEffect.SetActive(true);
+
+            // スプライトは停止
+            m_ActiveSprite = false;
             return;
         }
 
         // 上で操作したアルファ値の適用
         m_AttentionSprite.color = m_SpriteColor;
+    }
+
+    public void Initialize()
+    {
+        m_SpriteColor.a = 0.01f;
+        m_SpriteColor.g = 1;
+        m_AttentionSprite.color = m_SpriteColor;
+
+        m_ActiveSprite = true;
+        m_ActiveEffect = false;
     }
 }
