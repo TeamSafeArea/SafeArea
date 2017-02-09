@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour {
 
+    [SerializeField]
+
+
 	// Use this for initialization
 	void Start () {
 		
