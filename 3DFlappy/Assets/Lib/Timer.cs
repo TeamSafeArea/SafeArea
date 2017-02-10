@@ -42,7 +42,7 @@ public class Timer
 
         m_time -= Time.deltaTime;
 
-        m_time = Mathf.Min(m_time, 0f);
+        m_time = Mathf.Max(m_time, 0f);
     }
 
     /// <summary>

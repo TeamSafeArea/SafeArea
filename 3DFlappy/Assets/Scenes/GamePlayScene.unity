@@ -108,7 +108,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4894995005870140, guid: 3d080732de804834abeea26d83ef98aa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4894995005870140, guid: 3d080732de804834abeea26d83ef98aa, type: 2}
       propertyPath: m_LocalRotation.x
@@ -523,6 +523,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224077769876777696, guid: e7a180e58411f564d984ca5930187737,
     type: 2}
   m_PrefabInternal: {fileID: 918644422}
+--- !u!114 &676350081 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114651638120650042, guid: e7a180e58411f564d984ca5930187737,
+    type: 2}
+  m_PrefabInternal: {fileID: 918644422}
+  m_Script: {fileID: 11500000, guid: a81a5ca25feb19046a44fbb8cbd689e6, type: 3}
 --- !u!1001 &770918583
 Prefab:
   m_ObjectHideFlags: 0
@@ -1519,7 +1525,22 @@ Prefab:
     - target: {fileID: 114669380822049092, guid: 067e3631f13bbe14e9178e91b5c91d08,
         type: 2}
       propertyPath: m_jumpPower
-      value: 5000
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114669380822049092, guid: 067e3631f13bbe14e9178e91b5c91d08,
+        type: 2}
+      propertyPath: m_HP
+      value: 
+      objectReference: {fileID: 676350081}
+    - target: {fileID: 114669380822049092, guid: 067e3631f13bbe14e9178e91b5c91d08,
+        type: 2}
+      propertyPath: m_invincibleTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 54923687431473080, guid: 067e3631f13bbe14e9178e91b5c91d08,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 067e3631f13bbe14e9178e91b5c91d08, type: 2}

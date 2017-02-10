@@ -93,6 +93,8 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         IsHit_HealingItem(other);
+
+        IsHit_InvincibleItem(other);
     }
 
     //ジャンプ高度を制限
@@ -125,8 +127,6 @@ public class Player : MonoBehaviour
         if (!m_isInvincible) return;
 
         m_invincibleTimer.Start();
-
-        Debug.Log("無敵なう");
 
         if (!m_invincibleTimer.IsEnd()) return;
 
