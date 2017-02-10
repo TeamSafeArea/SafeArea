@@ -27,26 +27,28 @@ public class HP_UI : MonoBehaviour
     }
 
     /// <summary>
-    /// ライフを１回復する
+    /// ライフをx回復する
     /// </summary>
-    public void Heal()
+    /// <param name="_x"></param>
+    public void Heal(int _x)
     {
         if (m_hpContainer.Count == 0) return;
 
-        ++m_currentHP;
+        m_currentHP += _x;
         m_currentHP = Mathf.Min(m_currentHP, m_hpContainer.Count);
 
         UpdateHP();
     }
 
     /// <summary>
-    /// １ダメージを受ける
+    /// xダメージを受ける
     /// </summary>
-    public void Damage()
+    /// <param name="_x"></param>
+    public void Damage(int _x)
     {
         if (m_hpContainer.Count == 0) return;
 
-        --m_currentHP;
+        m_currentHP -= _x;
         m_currentHP = Mathf.Max(m_currentHP, 0);
 
         UpdateHP();

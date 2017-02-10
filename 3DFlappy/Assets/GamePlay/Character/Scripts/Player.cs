@@ -49,12 +49,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            m_HP.Damage();
+            m_HP.Damage(1);
         }
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            m_HP.Heal();
+            m_HP.Heal(1);
         }
 
         RestrictJump();
@@ -87,6 +87,8 @@ public class Player : MonoBehaviour
         IsHit_Ground(collision);
 
         IsHit_Enemy(collision);
+
+        IsHit_Barrel(collision);
     }
 
     //他のコリジョンに当たったときの処理
@@ -142,6 +144,14 @@ public class Player : MonoBehaviour
         m_isJump = false;
     }
 
+    //樽に当たったときの処理
+    private void IsHit_Barrel(Collision _col)
+    {
+        if (!_col.transform.tag.Contains("Barrel")) return;
+
+        m_HP.Damage(1);
+    }
+
     //エネミーに当たったときの処理
     private void IsHit_Enemy(Collision _col)
     {
@@ -155,7 +165,7 @@ public class Player : MonoBehaviour
     {
         if (!_other.transform.tag.Contains("HealingItem")) return;
 
-        m_HP.Heal();
+        m_HP.Heal(1);
     }
 
     //無敵アイテムを取ったときの処理
