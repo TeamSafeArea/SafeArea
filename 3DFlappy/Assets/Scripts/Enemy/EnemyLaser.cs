@@ -5,7 +5,7 @@ using UnityEngine;
 
 /// <summary>
 ///  レーザー発射関係の処理
-///  by 佐野直樹
+///  Written by 佐野直樹
 /// </summary>
 public class EnemyLaser : MonoBehaviour {
 

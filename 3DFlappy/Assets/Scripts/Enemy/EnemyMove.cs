@@ -2,20 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///  EnemyがPlayerに向かって移動
+///  Written by 佐野直樹
+/// </summary>
 public class EnemyMove : MonoBehaviour {
 
     [SerializeField]
     private float m_MoveSpeed;
-
-	// Use this for initialization
-	void Start () {
-        GameObject.Find("Laser").GetComponent<EnemyLaser>().Initialize();
-	}
-
-    void Update()
-    {
-        
-    }
 	
 	// Update is called once per frame
     void FixedUpdate()
