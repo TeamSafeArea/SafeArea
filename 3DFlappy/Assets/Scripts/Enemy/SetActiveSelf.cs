@@ -18,6 +18,8 @@ public class SetActiveSelf : MonoBehaviour {
 	void Update () {
         timer -= 2 * Time.deltaTime;
 
+        if (timer <= 2) this.gameObject.GetComponent<BoxCollider>().enabled = false;
+
         if (timer <= 0) this.gameObject.SetActive(false);
 	}
 }
