@@ -89,6 +89,8 @@ public class Player : MonoBehaviour
         IsHit_Enemy(collision);
 
         IsHit_Barrel(collision);
+
+        IsHit_FireBall(collision);
     }
 
     //他のコリジョンに当たったときの処理
@@ -148,6 +150,14 @@ public class Player : MonoBehaviour
     private void IsHit_Barrel(Collision _col)
     {
         if (!_col.transform.tag.Contains("Barrel")) return;
+
+        m_HP.Damage(1);
+    }
+
+    //火の玉に当たったときの処理
+    private void IsHit_FireBall(Collision _col)
+    {
+        if (!_col.transform.tag.Contains("FireBall")) return;
 
         m_HP.Damage(1);
     }

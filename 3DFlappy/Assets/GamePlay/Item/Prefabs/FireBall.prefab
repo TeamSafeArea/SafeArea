@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4086228602694176}
   - component: {fileID: 33830790146675858}
-  - component: {fileID: 135536899010128576}
   - component: {fileID: 23821684727238986}
   m_Layer: 0
   m_Name: Sphere
@@ -67,8 +66,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1919293460721468}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4086228602694176}
@@ -139,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239e94e125a29ca41aef39897708a456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_power: {x: 0, y: 0, z: 0}
+  m_power: {x: -100, y: 300, z: 0}
 --- !u!114 &114769126238001806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,22 +152,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_clamp:
     serializedVersion: 2
-    x: -5
-    y: 5
-    width: 5
-    height: -5
---- !u!135 &135536899010128576
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1421978770991100}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+    x: -10
+    y: 10
+    width: 10
+    height: -10
 --- !u!135 &135694911864337548
 SphereCollider:
   m_ObjectHideFlags: 1
