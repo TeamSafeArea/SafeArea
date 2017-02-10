@@ -37,9 +37,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4094940738511726}
   - component: {fileID: 54743815758932786}
-  - component: {fileID: 136639134350434138}
   - component: {fileID: 114639985849766082}
   - component: {fileID: 114104522840505134}
+  - component: {fileID: 135624009563522770}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Barrel
@@ -85,14 +85,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1500701091175088}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.77, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4256944644070192}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4100221388600060
 Transform:
   m_ObjectHideFlags: 1
@@ -112,15 +112,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1659883008294540}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4100221388600060}
   - {fileID: 4757863407099592}
   m_Father: {fileID: 4094940738511726}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4757863407099592
 Transform:
   m_ObjectHideFlags: 1
@@ -224,7 +224,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 88
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!114 &114104522840505134
 MonoBehaviour:
@@ -239,10 +239,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_clamp:
     serializedVersion: 2
-    x: -5
-    y: 5
-    width: 5
-    height: -5
+    x: -10
+    y: 10
+    width: 10
+    height: -10
 --- !u!114 &114639985849766082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,9 +254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239e94e125a29ca41aef39897708a456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_power: {x: 0, y: 0, z: 0}
---- !u!136 &136639134350434138
-CapsuleCollider:
+  m_power: {x: -400, y: 0, z: 0}
+--- !u!135 &135624009563522770
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -264,7 +264,6 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: eb9a1db5f2ad8ed4580eed352e170db6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.33
-  m_Height: 0.95
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.45, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.35
+  m_Center: {x: 0, y: 0, z: 0}

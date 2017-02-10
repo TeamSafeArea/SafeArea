@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 54226246333108330}
   m_Layer: 0
   m_Name: SpeedUpItem
-  m_TagString: Untagged
+  m_TagString: SpeedUpItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239e94e125a29ca41aef39897708a456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_power: {x: 0, y: 0, z: 0}
+  m_power: {x: -100, y: 0, z: 0}
 --- !u!114 &114587035593684290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_clamp:
     serializedVersion: 2
-    x: -5
-    y: 5
-    width: 5
-    height: -5
+    x: -10
+    y: 10
+    width: 10
+    height: -10

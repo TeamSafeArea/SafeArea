@@ -132,6 +132,8 @@ public class Player : MonoBehaviour
 
         m_invincibleTimer.Start();
 
+        Debug.Log("無敵なう");
+
         if (!m_invincibleTimer.IsEnd()) return;
 
         m_invincibleTimer.Reset();
@@ -149,6 +151,7 @@ public class Player : MonoBehaviour
     //樽に当たったときの処理
     private void IsHit_Barrel(Collision _col)
     {
+        if (m_isInvincible) return;
         if (!_col.transform.tag.Contains("Barrel")) return;
 
         m_HP.Damage(1);
@@ -157,6 +160,7 @@ public class Player : MonoBehaviour
     //火の玉に当たったときの処理
     private void IsHit_FireBall(Collision _col)
     {
+        if (m_isInvincible) return;
         if (!_col.transform.tag.Contains("FireBall")) return;
 
         m_HP.Damage(1);
