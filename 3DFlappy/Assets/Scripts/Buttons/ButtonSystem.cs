@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonSystem : MonoBehaviour {
@@ -37,14 +38,8 @@ public class ButtonSystem : MonoBehaviour {
         }
 
         /* 最下段から最上段、またはその反対 */
-        if (nowButton >= buttonsCount)
-        {
-            nowButton = 0;
-        }
-        else if (nowButton <= -1)
-        {
-            nowButton = buttonsCount - 1;
-        }
+        /* すまん気になったから勝手に書き換えたぞ by有冨 */
+        nowButton = Wrap.wrap(nowButton, 0, buttonsCount);
 
         return nowButton;
     }

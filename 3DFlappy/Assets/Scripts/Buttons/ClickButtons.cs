@@ -17,7 +17,7 @@ public class ClickButtons : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(nowButton);
+
     }
 
     public void SelectBySceneName()
@@ -28,7 +28,10 @@ public class ClickButtons : MonoBehaviour {
                 TitleButton();
                 break;
             case "GamePlayScene":
-
+                SceneManager.LoadScene("TitleScene");
+                break;
+            case "StaffRollScene":
+                SceneManager.LoadScene("TitleScene");
                 break;
         }
     }
