@@ -15,7 +15,7 @@ public class ButtonSystem : MonoBehaviour {
         buttonsCount = buttons.Length;  // ボタン個数を設定
     }
 
-     void Update()
+    void Update()
     {
         HighLightButtons(nowButton);
         SelectButtons();

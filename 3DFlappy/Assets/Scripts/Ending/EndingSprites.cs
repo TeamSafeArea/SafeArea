@@ -9,6 +9,7 @@ public class EndingSprites : MonoBehaviour {
     public Image fWinImageSprite;
     public Image fDefeatedSprite;
     public GameObject fReturnTitleButton;
+
     Color fNowColor;
     float fPlayerHp;    
     bool fBeginEnding;
