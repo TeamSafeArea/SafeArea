@@ -3,66 +3,128 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-///  Enemyの思考パターン
-///  Written by 佐野直樹
+///  敵クラス
+///  by 佐野直樹
 /// </summary>
-public class EnemyAI : MonoBehaviour {
+public class EnemyAi : MonoBehaviour {
 
     [SerializeField]
-    private EnemyBarrel m_Barrel;   // バレル攻撃
+    EnemyBarrel m_Barrel;   // バレル
     [SerializeField]
-    private EnemyLaser m_Laser;     // レーザー攻撃
+    EnemyLaser m_Laser;     // レーザー
     [SerializeField]
-    private int m_MinTime, m_MaxTime;   // インターバルのランダム値
+    int m_MinInterval, m_MaxInterval;   // インターバルタイム値の最大と最小
+    [SerializeField]
+    HP_UI m_HP;             // HP
+    [SerializeField]
+    Player m_Player;        // プレイヤー取得
 
-    private float m_time;           // 蓄積タイム
-    private int m_interval;         // インターバルタイム
+    Timer m_Timer;  // タイマー
 
-	// Use this for initialization
-	void Start () {
-        m_Laser = m_Laser.GetComponent<EnemyLaser>();
-        m_interval = Random.Range(m_MinTime, m_MaxTime + 1); // インターバル決定
-    }
+
+
+    // Use this for initialization
+    void Start () {
+        m_Player = m_Player.GetComponent<Player>();
+
+
+        /* タイマーの初期化 */
+        m_Timer = new Timer();
+        m_Timer.SetTime(SetIntervalByRandom());
+        m_Timer.Start();
+	}
 	
 	// Update is called once per frame
 	void Update () {
-        AttackPattern(Timer());
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            m_HP.Damage();
+        }
 
-        //Debug.Log(m_interval);
+        // ダメージ
+        Damage();
+
+        // タイマー更新
+        Timer();
+
 	}
 
     /// <summary>
-    ///  タイマー
+    ///  インターバル時間をランダムに設定
     /// </summary>
-    bool Timer()
+    /// <returns></returns>
+    float SetIntervalByRandom()
     {
-        m_time += 2 * Time.deltaTime;           // タイム++
-
-        if (m_interval >= m_time) return false;  // インターバル以下ならfalse
-
-        m_interval = Random.Range(m_MinTime, m_MaxTime + 1); // インターバル決定
-        m_time = 0;
-
-        return true;    // 以上ならtrue
+        float random = Random.Range(m_MinInterval, m_MaxInterval + 1);
+        return random;
     }
 
-    void AttackPattern(bool _isAttack)
+    /// <summary>
+    ///  攻撃がヒットしたかを取得
+    /// </summary>
+    /// <returns></returns>
+    bool HitDamage()
     {
-        // 攻撃フラグが立っていなかったら攻撃しない
-        if (!_isAttack) return;
+        return m_Player.IsAttack();
+    }
 
+    /// <summary>
+    ///  ダメージ
+    /// </summary>
+    void Damage()
+    {
+        if (HitDamage()) m_HP.Damage();
+    }
 
+    void Timer()
+    {
+        m_Timer.Update();
 
-        /* 攻撃パターン決定 */
-        int _attackPattern = Random.Range(0, 100);
-        if(_attackPattern <= 19)
+        // タイマーが終了していなければ攻撃しない
+        if (!m_Timer.IsEnd()) return;
+
+        /* HPが2以上ならバレル攻撃だけ */
+        if(m_HP.GetHp() >= 2)
         {
-
+            ShotBarrel();
+            TimerReset();
+            return;
         }
-        else
-        {
 
-        }
+        /* HPが1以下ならバレルかレーザー */
+        // 攻撃割合設定のための乱数決定
+        int attackPattern = Random.Range(1, 101);
+
+        /* ２割の確率でレーザー発射、それ以外はバレル */
+        if (attackPattern >= 21) ShotBarrel();
+        else ShotLaser();
+
+        TimerReset();
+
+    }
+
+    /// <summary>
+    ///  タイマーリセット
+    /// </summary>
+    void TimerReset()
+    {
+        m_Timer.SetTime(SetIntervalByRandom());
+        m_Timer.Reset();
+    }
+
+    /// <summary>
+    ///  バレル発射
+    /// </summary>
+    void ShotBarrel()
+    {
+
+    }
+
+    /// <summary>
+    ///  レーザー発射
+    /// </summary>
+    void ShotLaser()
+    {
 
     }
 
