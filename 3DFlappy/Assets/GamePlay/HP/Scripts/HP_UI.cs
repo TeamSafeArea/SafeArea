@@ -75,4 +75,14 @@ public class HP_UI : MonoBehaviour
             m_hpContainer[i].SetActive(result[m_currentHP, i]);
         }
     }
+
+    /// <summary>
+    ///  HPを取得
+    ///  by さの
+    /// </summary>
+    /// <returns>HP</returns>
+    public int GetHp()
+    {
+        return m_currentHP;
+    }
 }
