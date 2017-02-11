@@ -82,7 +82,7 @@ public class EndingSprites : MonoBehaviour {
     public void SetEndingBeginFlag(bool _flag, float _playerHp)
     {
         fBeginEnding = _flag;
-        _playerHp = fPlayerHp;
+        fPlayerHp = _playerHp;
     }
 
 }

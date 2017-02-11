@@ -14,7 +14,7 @@ public class EnemyBarrel : MonoBehaviour {
     /// <summary>
     ///  Barrel弾を撃つ
     /// </summary>
-    void ShotBarrel()
+    public void ShotBarrel()
     {
         Instantiate(m_Barrel, transform.position, this.gameObject.transform.rotation);
     }
