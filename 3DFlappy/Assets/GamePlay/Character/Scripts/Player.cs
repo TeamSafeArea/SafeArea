@@ -33,6 +33,11 @@ public class Player : MonoBehaviour
     //タイマー
     private Timer m_invincibleTimer;
 
+    // エンディング開始
+    // byさの
+    [SerializeField]
+    private EndingSprites m_endingSpite;
+
     //初期化
     public void Start()
     {
@@ -62,6 +67,8 @@ public class Player : MonoBehaviour
         Invincible();
 
         m_invincibleTimer.Update();
+
+        StartEnding();
     }
 
     /// <summary>
@@ -186,5 +193,13 @@ public class Player : MonoBehaviour
         if (!_other.transform.tag.Contains("InvincibleItem")) return;
 
         m_isInvincible = true;
+    }
+
+    // エンディング開始
+    // byさの
+    private void StartEnding()
+    {
+        if(m_HP.IsDead())
+        m_endingSpite.SetEndingBeginFlag(true, m_HP.GetHp());
     }
 }

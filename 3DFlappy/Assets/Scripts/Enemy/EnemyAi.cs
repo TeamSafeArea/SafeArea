@@ -46,7 +46,6 @@ public class EnemyAi : MonoBehaviour {
 
         // タイマー更新
         Timer();
-
 	}
 
     /// <summary>
@@ -110,6 +109,7 @@ public class EnemyAi : MonoBehaviour {
     {
         m_Timer.SetTime(SetIntervalByRandom());
         m_Timer.Reset();
+        m_Timer.Start();
     }
 
     /// <summary>
@@ -117,7 +117,7 @@ public class EnemyAi : MonoBehaviour {
     /// </summary>
     void ShotBarrel()
     {
-
+        m_Barrel.ShotBarrel();
     }
 
     /// <summary>
@@ -125,7 +125,7 @@ public class EnemyAi : MonoBehaviour {
     /// </summary>
     void ShotLaser()
     {
-
+        m_Laser.Initialize();
     }
 
 }
