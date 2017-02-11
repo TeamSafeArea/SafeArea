@@ -328,13 +328,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 325249354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 902531fc8e6dadb4982023d97b89a3eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 43859855ce1b5dd4caf44afde433a0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Barrel: {fileID: 1121905567}
-  m_Laser: {fileID: 1374601185}
-  m_MinTime: 2
-  m_MaxTime: 4
 --- !u!4 &325249358 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4247427149510936, guid: f44ad3287658fa14480e67358a959494,
@@ -1243,12 +1239,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1374601185 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114605018519101314, guid: f44ad3287658fa14480e67358a959494,
-    type: 2}
-  m_PrefabInternal: {fileID: 95891447}
-  m_Script: {fileID: 11500000, guid: 46d5594fcc025ed43b2839692715e424, type: 3}
 --- !u!1 &1461040878
 GameObject:
   m_ObjectHideFlags: 0
