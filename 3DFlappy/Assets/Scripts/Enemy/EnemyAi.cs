@@ -38,7 +38,7 @@ public class EnemyAi : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            m_HP.Damage();
+            m_HP.Damage(1);
         }
 
         // ダメージ
@@ -73,7 +73,7 @@ public class EnemyAi : MonoBehaviour {
     /// </summary>
     void Damage()
     {
-        if (HitDamage()) m_HP.Damage();
+        if (HitDamage()) m_HP.Damage(1);
     }
 
     void Timer()
