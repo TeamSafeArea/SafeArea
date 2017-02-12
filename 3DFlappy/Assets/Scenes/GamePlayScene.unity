@@ -340,6 +340,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4247427149510936, guid: f44ad3287658fa14480e67358a959494,
     type: 2}
   m_PrefabInternal: {fileID: 95891447}
+--- !u!1 &332421405 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1919293460721468, guid: 0dadcefedbb204649999233f26393f9d,
+    type: 2}
+  m_PrefabInternal: {fileID: 770918583}
 --- !u!1 &361471234
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,6 +559,11 @@ MonoBehaviour:
   - {fileID: 1876762184}
   - {fileID: 1939056907}
   - {fileID: 139281185}
+--- !u!1 &695163648 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1500701091175088, guid: c09f201663e304d40ba7f371b4a3dbb5,
+    type: 2}
+  m_PrefabInternal: {fileID: 2068206022}
 --- !u!1001 &770918583
 Prefab:
   m_ObjectHideFlags: 0
@@ -862,6 +872,53 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dc7d814c3a0a9754c814fbc7c3677253, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1101409998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1101409999}
+  - component: {fileID: 1101410000}
+  m_Layer: 0
+  m_Name: DebugItemSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1101409999
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1101409998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1101410000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1101409998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505cd4446138e134b9a30f74169886fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_p_barrel: {fileID: 695163648}
+  m_e_barrel: {fileID: 1674875683}
+  m_p_fireBall: {fileID: 332421405}
+  m_e_fireBall: {fileID: 1575405933}
+  m_healingItem: {fileID: 1071796958}
+  m_speedUpItem: {fileID: 1847034574}
+  m_invincibleItem: {fileID: 1161083313}
 --- !u!1 &1121905565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,6 +1883,11 @@ Prefab:
     - target: {fileID: 1500701091175088, guid: c09f201663e304d40ba7f371b4a3dbb5, type: 2}
       propertyPath: m_Name
       value: P_Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114639985849766082, guid: c09f201663e304d40ba7f371b4a3dbb5,
+        type: 2}
+      propertyPath: m_power.x
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c09f201663e304d40ba7f371b4a3dbb5, type: 2}

@@ -132,8 +132,6 @@ public class Player : MonoBehaviour
 
         m_invincibleTimer.Start();
 
-        Debug.Log("無敵なう");
-
         if (!m_invincibleTimer.IsEnd()) return;
 
         m_invincibleTimer.Reset();
