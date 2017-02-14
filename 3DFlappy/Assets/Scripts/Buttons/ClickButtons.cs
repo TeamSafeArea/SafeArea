@@ -31,7 +31,7 @@ public class ClickButtons : MonoBehaviour {
                 SceneManager.LoadScene("TitleScene");
                 break;
             case "StaffRollScene":
-                SceneManager.LoadScene("TitleScene");
+                SceneManager.LoadScene("StaffRollScene");
                 break;
         }
     }
@@ -47,7 +47,7 @@ public class ClickButtons : MonoBehaviour {
         }
         else if(nowButton == 1)
         {
-            SceneManager.LoadScene("StaffRoll");
+            SceneManager.LoadScene("StaffRollScene");
         }
         else if(nowButton == 2)
         {
