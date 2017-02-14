@@ -34,7 +34,7 @@ public class EndingSprites : MonoBehaviour {
         if (!fBeginEnding) return;
 
         // プレイヤーの残HPが０より上なら勝ち
-        if (fPlayerHp)
+        if (!fPlayerHp)
         {
             SpriteWin();
         }
