@@ -225,7 +225,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4247427149510936, guid: f44ad3287658fa14480e67358a959494, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4247427149510936, guid: f44ad3287658fa14480e67358a959494, type: 2}
       propertyPath: m_LocalRotation.z
@@ -233,13 +233,33 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4247427149510936, guid: f44ad3287658fa14480e67358a959494, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4247427149510936, guid: f44ad3287658fa14480e67358a959494, type: 2}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114583837512432130, guid: f44ad3287658fa14480e67358a959494,
     - target: {fileID: 1929043529350186, guid: f44ad3287658fa14480e67358a959494, type: 2}
+        type: 2}
+      propertyPath: m_HP
+      value: 
+      objectReference: {fileID: 2091954320}
+    - target: {fileID: 114583837512432130, guid: f44ad3287658fa14480e67358a959494,
+        type: 2}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 2136561880}
+    - target: {fileID: 114583837512432130, guid: f44ad3287658fa14480e67358a959494,
+        type: 2}
+      propertyPath: m_Ending
+      value: 
+      objectReference: {fileID: 973416436}
+    - target: {fileID: 114756903032741738, guid: f44ad3287658fa14480e67358a959494,
+        type: 2}
+      propertyPath: m_Barrel
+      value: 
+      objectReference: {fileID: 1674875683}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -870,12 +890,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 772925622}
---- !u!114 &822961877 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114605018519101314, guid: f44ad3287658fa14480e67358a959494,
-    type: 2}
-  m_PrefabInternal: {fileID: 95891447}
-  m_Script: {fileID: 11500000, guid: 46d5594fcc025ed43b2839692715e424, type: 3}
 --- !u!1 &885566494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,47 +1132,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dc7d814c3a0a9754c814fbc7c3677253, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1121905565
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1121905566}
-  - component: {fileID: 1121905567}
-  m_Layer: 0
-  m_Name: Barrel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1121905566
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1121905565}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7, y: 0.92, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 325249358}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1121905567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1121905565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e76973c928a14934ca5193059892b2e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Barrel: {fileID: 1674875683}
 --- !u!1 &1147655140
 GameObject:
   m_ObjectHideFlags: 0

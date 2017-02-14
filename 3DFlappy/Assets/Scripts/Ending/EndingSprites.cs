@@ -11,12 +11,13 @@ public class EndingSprites : MonoBehaviour {
     public GameObject fReturnTitleButton;
 
     Color fNowColor;
-    float fPlayerHp;    
+    bool fPlayerHp;    
     bool fBeginEnding;
 
     // Use this for initialization
     void Start () {
         fBeginEnding = false;
+        fPlayerHp = false;
         fWinImageSprite = fWinImageSprite.GetComponent<Image>();
         fDefeatedSprite = fDefeatedSprite.GetComponent<Image>();
         fNowColor = fWinImageSprite.GetComponent<Image>().color;
@@ -33,7 +34,7 @@ public class EndingSprites : MonoBehaviour {
         if (!fBeginEnding) return;
 
         // プレイヤーの残HPが０より上なら勝ち
-        if (fPlayerHp > 0)
+        if (!fPlayerHp)
         {
             SpriteWin();
         }
@@ -78,11 +79,11 @@ public class EndingSprites : MonoBehaviour {
     ///  エンディング開始するか
     /// </summary>
     /// <param name="_flag">trueで開始</param>
-    /// <param name="_playerHp">プレイヤーのHPをいれる</param>
-    public void SetEndingBeginFlag(bool _flag, float _playerHp)
+    /// <param name="_playerHp">プレイヤーが勝ったか？(勝ったらtrue)</param>
+    public void SetEndingBeginFlag(bool _flag, bool _isPlayerDead)
     {
         fBeginEnding = _flag;
-        fPlayerHp = _playerHp;
+        fPlayerHp = _isPlayerDead;
     }
 
 }
