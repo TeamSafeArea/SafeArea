@@ -9,6 +9,8 @@ using UnityEngine;
 /// </summary>
 public class ItemSpawner : MonoBehaviour
 {
+    [SerializeField]
+    private GamePlayManager m_manager;
     //アイテムコンテナ
     [SerializeField]
     private List<GameObject> m_itemContainer;
@@ -33,10 +35,13 @@ public class ItemSpawner : MonoBehaviour
     {
         while (true)
         {
-            if (m_itemContainer.Count == 0) yield return new WaitForSeconds(0);
+            if (m_itemContainer.Count == 0) yield break; ;
 
-            int index = Random.Range(0, m_itemContainer.Count);
-            Instantiate(m_itemContainer[index], transform.position, Quaternion.identity);
+            if (m_manager.IsPlay() == true)
+            {
+                int index = Random.Range(0, m_itemContainer.Count);
+                Instantiate(m_itemContainer[index], transform.position, Quaternion.identity);
+            }
             yield return new WaitForSeconds(m_spawnTime);
         }
     }

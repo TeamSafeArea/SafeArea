@@ -7,7 +7,8 @@ using UnityEngine;
 ///  by 佐野直樹
 /// </summary>
 public class EnemyAi : MonoBehaviour {
-
+    [SerializeField]
+    GamePlayManager m_manager;
     [SerializeField]
     EnemyBarrel m_Barrel;   // バレル
     [SerializeField]
@@ -36,6 +37,9 @@ public class EnemyAi : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (m_manager.IsPlay() == false) return;
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             m_HP.Damage(1);

@@ -14,6 +14,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
+    private GamePlayManager m_manager;
+    [SerializeField]
     private HP_UI m_HP;
     //ジャンプする力
     [SerializeField]
@@ -52,6 +54,8 @@ public class Player : MonoBehaviour
     //更新
     private void Update()
     {
+        if (m_manager.IsPlay() == false) return;
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             m_HP.Damage(1);

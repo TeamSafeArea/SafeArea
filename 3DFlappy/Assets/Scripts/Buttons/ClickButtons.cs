@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ClickButtons : MonoBehaviour {
 
-    int nowButton;      // ボタン番号
-    string nowSceneName;// ロード中のシーン名
+    protected int nowButton;      // ボタン番号
+    protected string nowSceneName;// ロード中のシーン名
 
 	// Use this for initialization
 	void Start () {
