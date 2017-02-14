@@ -6,7 +6,7 @@ using UnityEngine;
 ///  敵クラス
 ///  by 佐野直樹
 /// </summary>
-public class EnemyAI : MonoBehaviour {
+public class EnemyAi : MonoBehaviour {
 
     [SerializeField]
     EnemyBarrel m_Barrel;   // バレル
