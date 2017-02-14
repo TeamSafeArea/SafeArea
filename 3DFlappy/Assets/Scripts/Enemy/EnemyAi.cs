@@ -6,7 +6,7 @@ using UnityEngine;
 ///  敵クラス
 ///  by 佐野直樹
 /// </summary>
-public class EnemyAi : MonoBehaviour {
+public class EnemyAI : MonoBehaviour {
 
     [SerializeField]
     EnemyBarrel m_Barrel;   // バレル
@@ -20,13 +20,13 @@ public class EnemyAi : MonoBehaviour {
     Player m_Player;        // プレイヤー取得
 
     Timer m_Timer;  // タイマー
-
+    [SerializeField]
+    EndingSprites m_Ending;
 
 
     // Use this for initialization
     void Start () {
         m_Player = m_Player.GetComponent<Player>();
-
 
         /* タイマーの初期化 */
         m_Timer = new Timer();
@@ -46,6 +46,9 @@ public class EnemyAi : MonoBehaviour {
 
         // タイマー更新
         Timer();
+
+        // 死んだか
+        IsDead();
 	}
 
     /// <summary>
@@ -128,4 +131,9 @@ public class EnemyAi : MonoBehaviour {
         m_Laser.Initialize();
     }
 
+    private void IsDead()
+    {
+        if (m_HP.IsDead())
+            m_Ending.SetEndingBeginFlag(true, false);
+    }
 }

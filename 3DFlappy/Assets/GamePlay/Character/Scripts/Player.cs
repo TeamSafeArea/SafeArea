@@ -200,6 +200,6 @@ public class Player : MonoBehaviour
     private void StartEnding()
     {
         if(m_HP.IsDead())
-        m_endingSpite.SetEndingBeginFlag(true, m_HP.GetHp());
+        m_endingSpite.SetEndingBeginFlag(true, true);
     }
 }
