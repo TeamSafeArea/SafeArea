@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GamePlayManager m_manager;
     [SerializeField]
+    private GameObject m_healingEffect;
+    [SerializeField]
     private HP_UI m_HP;
     //ジャンプする力
     [SerializeField]
@@ -189,6 +191,7 @@ public class Player : MonoBehaviour
         if (!_other.transform.tag.Contains("HealingItem")) return;
 
         m_HP.Heal(1);
+        m_healingEffect.SetActive(true);
     }
 
     //無敵アイテムを取ったときの処理

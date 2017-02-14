@@ -9,6 +9,8 @@ using UnityEngine;
 /// </summary>
 public class Floor : MonoBehaviour {
     [SerializeField]
+    private GamePlayManager m_manager;
+    [SerializeField]
     private float m_speed;
     [SerializeField]
     private Rect m_rect;
@@ -25,14 +27,19 @@ public class Floor : MonoBehaviour {
         Texture texture = m_material.mainTexture;
         m_textureWidth = texture.width;
         m_textureHeight = texture.height;
-	}
+
+        Vector2 offset = new Vector2(m_rect.x / m_textureWidth, m_rect.y / m_textureHeight);
+        Vector2 scale = new Vector2(m_rect.width / m_textureWidth, m_rect.height / m_textureHeight);
+        m_material.SetTextureOffset("_MainTex", offset);
+        m_material.SetTextureScale("_MainTex", scale);
+    }
 	
 	//初期化
 	void Update () {
+        if (m_manager.IsPlay() == false) return;
+
         x += m_speed;
-
         m_rect.x = x;
-
         Vector2 offset = new Vector2(m_rect.x / m_textureWidth, m_rect.y / m_textureHeight);
         Vector2 scale = new Vector2(m_rect.width / m_textureWidth, m_rect.height / m_textureHeight);
         m_material.SetTextureOffset("_MainTex", offset);
