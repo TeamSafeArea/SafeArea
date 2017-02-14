@@ -9,25 +9,31 @@ using UnityEngine;
 public class EnemyAi : MonoBehaviour {
     [SerializeField]
     GamePlayManager m_manager;
+    [SerializeField]    // バレル
+    EnemyBarrel m_Barrel;   
+    [SerializeField]    // レーザー
+    EnemyLaser m_Laser;     
+    [SerializeField]     // インターバルタイム値の最大と最小
+    int m_MinInterval, m_MaxInterval;
+    [SerializeField]    // HP
+    HP_UI m_HP;
+    [SerializeField]    // プレイヤー取得
+    Player m_Player;
+    [SerializeField]    // エンディング
+    EndingSprites m_Ending;
     [SerializeField]
-    EnemyBarrel m_Barrel;   // バレル
+    MeshRenderer m_EnemyMesh;
     [SerializeField]
-    EnemyLaser m_Laser;     // レーザー
-    [SerializeField]
-    int m_MinInterval, m_MaxInterval;   // インターバルタイム値の最大と最小
-    [SerializeField]
-    HP_UI m_HP;             // HP
-    [SerializeField]
-    Player m_Player;        // プレイヤー取得
+    float m_power;
 
     Timer m_Timer;  // タイマー
-    [SerializeField]
-    EndingSprites m_Ending;
-
+    bool m_IsAttack, m_IsFlash;
+    float m_KnockTime;
 
     // Use this for initialization
     void Start () {
         m_Player = m_Player.GetComponent<Player>();
+        m_KnockTime = 0;
 
         /* タイマーの初期化 */
         m_Timer = new Timer();
@@ -37,7 +43,6 @@ public class EnemyAi : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
         if (m_manager.IsPlay() == false) return;
 
         if (Input.GetKeyDown(KeyCode.Z))
@@ -48,12 +53,20 @@ public class EnemyAi : MonoBehaviour {
         // ダメージ
         Damage();
 
+        // 点滅
+        Flash();
+
         // タイマー更新
         Timer();
 
         // 死んだか
         IsDead();
 	}
+
+    void FixedUpdate()
+    {
+        KnockBack();
+    }
 
     /// <summary>
     ///  インターバル時間をランダムに設定
@@ -75,11 +88,53 @@ public class EnemyAi : MonoBehaviour {
     }
 
     /// <summary>
-    ///  ダメージ
+    ///  ダメージとノックバック
     /// </summary>
     void Damage()
     {
-        if (HitDamage()) m_HP.Damage(1);
+        // ダメージフラグが立ったか
+        if (!HitDamage()) return;
+
+        // 立ってたら1ダメージ
+         m_HP.Damage(1);
+        m_IsAttack = true;
+        m_IsFlash = true;
+    }
+
+    void KnockBack()
+    {
+        // 死んでたらノックバックしない
+        if (!m_IsAttack) return;
+
+        this.GetComponent<Rigidbody>().AddForce(Vector3.right * m_power, ForceMode.Impulse);
+
+        m_IsAttack = false;
+    }
+
+    /// <summary>
+    ///  被ダメージ後点滅
+    /// </summary>
+    void Flash()
+    {
+        if (!m_IsFlash) return;
+
+        m_KnockTime += 0.1f;
+        
+        if(m_KnockTime % 0.5f <= 0.2f )
+        {
+            m_EnemyMesh.enabled = false;
+        }
+        else
+        {
+            m_EnemyMesh.enabled = true;
+        }
+
+        if(m_KnockTime >= 4)
+        {
+            m_KnockTime = 0;
+            m_EnemyMesh.enabled = true;
+            m_IsFlash = false;
+        }
     }
 
     void Timer()
@@ -102,7 +157,7 @@ public class EnemyAi : MonoBehaviour {
         int attackPattern = Random.Range(1, 101);
 
         /* ２割の確率でレーザー発射、それ以外はバレル */
-        if (attackPattern >= 21) ShotBarrel();
+        if (attackPattern >= 41) ShotBarrel();
         else ShotLaser();
 
         TimerReset();
@@ -135,6 +190,9 @@ public class EnemyAi : MonoBehaviour {
         m_Laser.Initialize();
     }
 
+    /// <summary>
+    ///  死んだか？
+    /// </summary>
     private void IsDead()
     {
         if (m_HP.IsDead())
