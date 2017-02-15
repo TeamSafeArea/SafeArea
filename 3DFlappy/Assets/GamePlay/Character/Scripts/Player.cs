@@ -85,8 +85,6 @@ public class Player : MonoBehaviour
 
         m_invincibleTimer.Update();
 
-        StartEnding();
-
         Flash();
     }
 
@@ -104,6 +102,8 @@ public class Player : MonoBehaviour
     //更新
     private void FixedUpdate()
     {
+        if (m_manager.IsPlay() == false) return;
+
         Jump();
     }
 
@@ -226,14 +226,6 @@ public class Player : MonoBehaviour
         if (!_other.transform.tag.Contains("SpeedUpItem")) return;
 
         m_speedUpEffect.SetActive(true);
-    }
-
-    // エンディング開始
-    // byさの
-    private void StartEnding()
-    {
-        if(m_HP.IsDead())
-        m_endingSpite.SetEndingBeginFlag(true, true);
     }
 
     /// <summary>
