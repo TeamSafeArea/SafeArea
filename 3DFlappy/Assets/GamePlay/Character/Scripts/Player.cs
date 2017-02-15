@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     //無敵時間
     [SerializeField]
     private float m_invincibleTime;
+    [SerializeField]
+    MeshRenderer m_PlayerMesh;
     //ジャンプしているか？
     private bool m_isJump;
     //攻撃したか？
@@ -40,6 +42,8 @@ public class Player : MonoBehaviour
     private bool m_isInvincible;
     //タイマー
     private Timer m_invincibleTimer;
+    private bool m_isFlash;
+    float m_knockTime;
 
     // エンディング開始
     // byさの
@@ -55,6 +59,9 @@ public class Player : MonoBehaviour
 
         m_invincibleTimer = new Timer();
         m_invincibleTimer.SetTime(m_invincibleTime);
+
+        m_knockTime = 0f;
+        m_isFlash = false;
     }
 
     //更新
@@ -79,6 +86,8 @@ public class Player : MonoBehaviour
         m_invincibleTimer.Update();
 
         StartEnding();
+
+        Flash();
     }
 
     /// <summary>
@@ -172,6 +181,7 @@ public class Player : MonoBehaviour
         if (!_col.transform.tag.Contains("Barrel")) return;
 
         m_HP.Damage(1);
+        m_isFlash = true;
     }
 
     //火の玉に当たったときの処理
@@ -181,6 +191,7 @@ public class Player : MonoBehaviour
         if (!_col.transform.tag.Contains("FireBall")) return;
 
         m_HP.Damage(1);
+        m_isFlash = true;
     }
 
     //エネミーに当たったときの処理
@@ -223,5 +234,31 @@ public class Player : MonoBehaviour
     {
         if(m_HP.IsDead())
         m_endingSpite.SetEndingBeginFlag(true, true);
+    }
+
+    /// <summary>
+    ///  被ダメージ後点滅
+    /// </summary>
+    private void Flash()
+    {
+        if (!m_isFlash) return;
+
+        m_knockTime += 0.1f;
+
+        if (m_knockTime % 0.5f <= 0.2f)
+        {
+            m_PlayerMesh.enabled = false;
+        }
+        else
+        {
+            m_PlayerMesh.enabled = true;
+        }
+
+        if (m_knockTime >= 4)
+        {
+            m_knockTime = 0;
+            m_PlayerMesh.enabled = true;
+            m_isFlash = false;
+        }
     }
 }
