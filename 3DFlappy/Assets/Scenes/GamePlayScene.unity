@@ -278,7 +278,7 @@ MonoBehaviour:
   m_blackFadeOut: {fileID: 1410250481}
   m_ready: {fileID: 1147655142}
   m_playerHP: {fileID: 676350081}
-  m_enemyHP: {fileID: 676350081}
+  m_enemyHP: {fileID: 2091954320}
   m_endingSprites: {fileID: 973416436}
 --- !u!1 &139281185
 GameObject:
