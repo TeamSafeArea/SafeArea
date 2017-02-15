@@ -18,6 +18,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject m_healingEffect;
     [SerializeField]
+    private GameObject m_invincibleEffect;
+    [SerializeField]
+    private GameObject m_speedUpEffect;
+    [SerializeField]
     private HP_UI m_HP;
     //ジャンプする力
     [SerializeField]
@@ -112,6 +116,8 @@ public class Player : MonoBehaviour
         IsHit_HealingItem(other);
 
         IsHit_InvincibleItem(other);
+
+        IsHit_SpeedUpItem(other);
     }
 
     //ジャンプ高度を制限
@@ -200,6 +206,15 @@ public class Player : MonoBehaviour
         if (!_other.transform.tag.Contains("InvincibleItem")) return;
 
         m_isInvincible = true;
+        m_invincibleEffect.SetActive(true);
+    }
+
+    //スピードアップアイテムを取ったときの処理
+    private void IsHit_SpeedUpItem(Collider _other)
+    {
+        if (!_other.transform.tag.Contains("SpeedUpItem")) return;
+
+        m_speedUpEffect.SetActive(true);
     }
 
     // エンディング開始
