@@ -58,9 +58,6 @@ public class EnemyAi : MonoBehaviour {
 
         // タイマー更新
         Timer();
-
-        // 死んだか
-        IsDead();
 	}
 
     void FixedUpdate()
@@ -188,14 +185,5 @@ public class EnemyAi : MonoBehaviour {
     void ShotLaser()
     {
         m_Laser.Initialize();
-    }
-
-    /// <summary>
-    ///  死んだか？
-    /// </summary>
-    private void IsDead()
-    {
-        if (m_HP.IsDead())
-            m_Ending.SetEndingBeginFlag(true, false);
     }
 }
