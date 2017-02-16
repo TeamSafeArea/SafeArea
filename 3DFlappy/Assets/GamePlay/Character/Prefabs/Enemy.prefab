@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114350914537995176}
   m_Layer: 0
   m_Name: LasetEmitter
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,7 +321,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1266429768867134}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4863341c897d37f40894c39e97ded305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_manager: {fileID: 0}
   m_MoveSpeed: 0.7
 --- !u!114 &114350914537995176
 MonoBehaviour:
@@ -374,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43859855ce1b5dd4caf44afde433a0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_manager: {fileID: 0}
   m_Barrel: {fileID: 114756903032741738}
   m_Laser: {fileID: 114605018519101314}
   m_MinInterval: 2
@@ -381,6 +383,8 @@ MonoBehaviour:
   m_HP: {fileID: 0}
   m_Player: {fileID: 0}
   m_Ending: {fileID: 0}
+  m_EnemyMesh: {fileID: 23150938601734796}
+  m_power: 140
 --- !u!114 &114605018519101314
 MonoBehaviour:
   m_ObjectHideFlags: 1
