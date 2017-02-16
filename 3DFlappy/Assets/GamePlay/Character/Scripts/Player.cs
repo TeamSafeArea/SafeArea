@@ -117,6 +117,8 @@ public class Player : MonoBehaviour
         IsHit_Barrel(collision);
 
         IsHit_FireBall(collision);
+
+        IsHit_LaserBeam(collision);
     }
 
     //他のコリジョンに当たったときの処理
@@ -191,6 +193,16 @@ public class Player : MonoBehaviour
         if (!_col.transform.tag.Contains("FireBall")) return;
 
         m_HP.Damage(1);
+        m_isFlash = true;
+    }
+
+    // レーザーに当たったときの処理
+    private void IsHit_LaserBeam(Collision _col)
+    {
+        if (!m_isInvincible) return;
+        if (!_col.transform.tag.Contains("Laser")) return;
+
+        m_HP.Damage(3);
         m_isFlash = true;
     }
 
