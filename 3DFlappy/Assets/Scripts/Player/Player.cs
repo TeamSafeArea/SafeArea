@@ -117,8 +117,6 @@ public class Player : MonoBehaviour
         IsHit_Barrel(collision);
 
         IsHit_FireBall(collision);
-
-        IsHit_LaserBeam(collision);
     }
 
     //他のコリジョンに当たったときの処理
@@ -129,6 +127,8 @@ public class Player : MonoBehaviour
         IsHit_InvincibleItem(other);
 
         IsHit_SpeedUpItem(other);
+
+        IsHit_LaserBeam(other);
     }
 
     //ジャンプ高度を制限
@@ -198,18 +198,6 @@ public class Player : MonoBehaviour
         m_isFlash = true;
     }
 
-    // レーザーに当たったときの処理
-    private void IsHit_LaserBeam(Collision _col)
-    {
-        if (m_isInvincible) return;
-        if (!_col.transform.tag.Contains("Laser")) return;
-
-        Debug.Log("なぜだ");
-
-        m_HP.Damage(3);
-        m_isFlash = true;
-    }
-
     //エネミーに当たったときの処理
     private void IsHit_Enemy(Collision _col)
     {
@@ -246,6 +234,16 @@ public class Player : MonoBehaviour
 
         AudioManager.Instance.PlaySE("PowerUp", 0f);
         m_speedUpEffect.SetActive(true);
+    }
+
+    // レーザーに当たったときの処理
+    private void IsHit_LaserBeam(Collider _other)
+    {
+        if (m_isInvincible) return;
+        if (!_other.transform.tag.Contains("Laser")) return;
+
+        m_HP.Damage(3);
+        m_isFlash = true;
     }
 
     /// <summary>
