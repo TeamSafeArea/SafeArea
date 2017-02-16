@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427135, b: 0.56452316, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1202,6 +1202,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114756903032741738, guid: f44ad3287658fa14480e67358a959494,
+        type: 2}
+      propertyPath: m_Barrel
+      value: 
+      objectReference: {fileID: 1674875683}
+    - target: {fileID: 114286543976904588, guid: f44ad3287658fa14480e67358a959494,
+        type: 2}
+      propertyPath: m_manager
+      value: 
+      objectReference: {fileID: 138277695}
+    - target: {fileID: 114583837512432130, guid: f44ad3287658fa14480e67358a959494,
+        type: 2}
+      propertyPath: m_manager
+      value: 
+      objectReference: {fileID: 138277695}
     - target: {fileID: 114583837512432130, guid: f44ad3287658fa14480e67358a959494,
         type: 2}
       propertyPath: m_HP
@@ -1217,30 +1232,29 @@ Prefab:
       propertyPath: m_Ending
       value: 
       objectReference: {fileID: 973416436}
-    - target: {fileID: 114286543976904588, guid: f44ad3287658fa14480e67358a959494,
+    - target: {fileID: 65620539708086894, guid: f44ad3287658fa14480e67358a959494,
         type: 2}
-      propertyPath: m_manager
-      value: 
-      objectReference: {fileID: 138277695}
-    - target: {fileID: 114583837512432130, guid: f44ad3287658fa14480e67358a959494,
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65620539708086894, guid: f44ad3287658fa14480e67358a959494,
         type: 2}
-      propertyPath: m_manager
-      value: 
-      objectReference: {fileID: 138277695}
-    - target: {fileID: 114756903032741738, guid: f44ad3287658fa14480e67358a959494,
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65620539708086894, guid: f44ad3287658fa14480e67358a959494,
         type: 2}
-      propertyPath: m_Barrel
-      value: 
-      objectReference: {fileID: 1674875683}
-    - target: {fileID: 114583837512432130, guid: f44ad3287658fa14480e67358a959494,
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227267837297660, guid: f44ad3287658fa14480e67358a959494, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65620539708086894, guid: f44ad3287658fa14480e67358a959494,
         type: 2}
-      propertyPath: m_EnemyMesh
-      value: 
-      objectReference: {fileID: 1769864348}
-    - target: {fileID: 114583837512432130, guid: f44ad3287658fa14480e67358a959494,
-        type: 2}
-      propertyPath: m_power
-      value: 140
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f44ad3287658fa14480e67358a959494, type: 2}
@@ -2058,11 +2072,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4094940738511726, guid: c09f201663e304d40ba7f371b4a3dbb5,
     type: 2}
   m_PrefabInternal: {fileID: 1218590443}
---- !u!23 &1769864348 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 23150938601734796, guid: f44ad3287658fa14480e67358a959494,
-    type: 2}
-  m_PrefabInternal: {fileID: 1088814650}
 --- !u!1001 &1830858765
 Prefab:
   m_ObjectHideFlags: 0

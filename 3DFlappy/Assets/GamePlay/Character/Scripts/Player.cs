@@ -199,8 +199,10 @@ public class Player : MonoBehaviour
     // レーザーに当たったときの処理
     private void IsHit_LaserBeam(Collision _col)
     {
-        if (!m_isInvincible) return;
+        if (m_isInvincible) return;
         if (!_col.transform.tag.Contains("Laser")) return;
+
+        Debug.Log("なぜだ");
 
         m_HP.Damage(3);
         m_isFlash = true;
