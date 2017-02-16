@@ -33,7 +33,7 @@ public class ClickButtons : MonoBehaviour {
                 SceneManager.LoadScene("TitleScene");
                 break;
             case "StaffRollScene":
-                SceneManager.LoadScene("TitleScene");
+                SceneManager.LoadScene("StaffRollScene");
                 break;
         }
     }

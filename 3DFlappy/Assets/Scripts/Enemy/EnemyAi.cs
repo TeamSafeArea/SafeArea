@@ -154,7 +154,7 @@ public class EnemyAi : MonoBehaviour {
         int attackPattern = Random.Range(1, 101);
 
         /* ２割の確率でレーザー発射、それ以外はバレル */
-        if (attackPattern >= 41) ShotBarrel();
+        if (attackPattern >= 91) ShotBarrel();
         else ShotLaser();
 
         TimerReset();
