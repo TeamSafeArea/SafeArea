@@ -21,7 +21,7 @@ ExportedObj/
 *.pidb.meta
 
 # resouce files
-res/
+Resources/
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
