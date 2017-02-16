@@ -240,7 +240,7 @@ public class Player : MonoBehaviour
     private void IsHit_LaserBeam(Collider _other)
     {
         if (m_isInvincible) return;
-        if (!_other.transform.tag.Contains("Laser")) return;
+        if (!_other.tag.Contains("Laser")) return;
 
         m_HP.Damage(3);
         m_isFlash = true;
