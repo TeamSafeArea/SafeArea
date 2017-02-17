@@ -67,6 +67,8 @@ public class Player : MonoBehaviour
     //更新
     private void Update()
     {
+        RestrictJump();
+
         if (m_manager.IsPlay() == false) return;
 
         if (Input.GetKeyDown(KeyCode.Z))
@@ -78,8 +80,6 @@ public class Player : MonoBehaviour
         {
             m_HP.Heal(1);
         }
-
-        RestrictJump();
 
         Invincible();
 
@@ -134,8 +134,6 @@ public class Player : MonoBehaviour
     //ジャンプ高度を制限
     private void RestrictJump()
     {
-        if (m_isJump == false) return;
-
         Vector3 position = this.transform.localPosition;
         position.y = Math.Min(position.y, m_maxJump);
         this.transform.position = position;
@@ -149,6 +147,7 @@ public class Player : MonoBehaviour
 
         if (m_isJump == false)
         {
+            AudioManager.Instance.PlaySE("Jump", 0);
             Rigidbody rigidbody = this.GetComponent<Rigidbody>();
             rigidbody.AddForce(0f, m_jumpPower, 0f);
             m_isJump = true;
@@ -161,9 +160,12 @@ public class Player : MonoBehaviour
         if (!m_isInvincible) return;
 
         m_invincibleTimer.Start();
+        Material material = m_PlayerMesh.material;
+        material.color = new Color(1f, 1f, 0f, 1f);
 
         if (!m_invincibleTimer.IsEnd()) return;
 
+        material.color = new Color(1f, 1f, 1f, 1f);
         m_invincibleTimer.Reset();
         m_isInvincible = false;
     }
