@@ -2632,7 +2632,7 @@ Prefab:
     - target: {fileID: 114645658108011886, guid: 461f80933b1163b429d99219631daf20,
         type: 2}
       propertyPath: m_itemContainer.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4540211417572874, guid: 461f80933b1163b429d99219631daf20, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2684,7 +2684,7 @@ Prefab:
     - target: {fileID: 114645658108011886, guid: 461f80933b1163b429d99219631daf20,
         type: 2}
       propertyPath: m_spawnTime
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114645658108011886, guid: 461f80933b1163b429d99219631daf20,
         type: 2}
