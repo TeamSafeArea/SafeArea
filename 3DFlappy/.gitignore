@@ -21,6 +21,7 @@ ExportedObj/
 *.pidb.meta
 
 # resouce files
+Resources/
 res/
 
 # Unity3D Generated File On Crash Reports

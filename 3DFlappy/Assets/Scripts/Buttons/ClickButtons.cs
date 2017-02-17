@@ -22,6 +22,8 @@ public class ClickButtons : MonoBehaviour {
 
     public void SelectBySceneName()
     {
+        AudioManager.Instance.PlaySE("Decision", 0f);
+
         switch (nowSceneName)
         {
             case "TitleScene":
@@ -31,7 +33,7 @@ public class ClickButtons : MonoBehaviour {
                 SceneManager.LoadScene("TitleScene");
                 break;
             case "StaffRollScene":
-                SceneManager.LoadScene("StaffRollScene");
+                SceneManager.LoadScene("TitleScene");
                 break;
         }
     }
