@@ -25,10 +25,13 @@ public class EnemyAi : MonoBehaviour {
     MeshRenderer m_EnemyMesh;
     [SerializeField]
     float m_power;
+    [SerializeField]
+    float m_Distance;
 
     Timer m_Timer;  // タイマー
     bool m_IsAttack, m_IsFlash;
     float m_KnockTime;
+
 
     // Use this for initialization
     void Start () {
@@ -136,6 +139,9 @@ public class EnemyAi : MonoBehaviour {
 
     void Timer()
     {
+        // 一定距離からは攻撃しない
+        if (PlayerDistance() <= m_Distance) return;
+
         m_Timer.Update();
 
         // タイマーが終了していなければ攻撃しない
@@ -186,4 +192,15 @@ public class EnemyAi : MonoBehaviour {
     {
         m_Laser.Initialize();
     }
+
+    /// <summary>
+    ///  プレイヤーとの距離をとる
+    /// </summary>
+    /// <returns>距離</returns>
+    float PlayerDistance()
+    {
+        float _xDistance = this.transform.position.x - m_Player.transform.position.x;
+        return _xDistance;
+    }
+
 }
