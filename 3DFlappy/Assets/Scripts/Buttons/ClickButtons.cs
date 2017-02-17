@@ -68,6 +68,12 @@ public class ClickButtons : MonoBehaviour {
     }
 
 
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+
     void TitleButton()
     {
         nowButton = GetComponent<ButtonSystem>().GetNowButton();
