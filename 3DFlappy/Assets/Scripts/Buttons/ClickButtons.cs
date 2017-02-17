@@ -19,7 +19,7 @@ public class ClickButtons : MonoBehaviour {
 	void Update () {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if (nowSceneName == "GamePlayScene" || nowSceneName == "StaffRollScene")
+            if (nowSceneName == "GamePlayScene" || nowSceneName == "StaffRollScene" || nowSceneName == "TutorialScene")
             {
                 AudioManager.Instance.PlaySE("Decision", 0f);
                 SceneManager.LoadScene("TitleScene");
@@ -43,7 +43,28 @@ public class ClickButtons : MonoBehaviour {
             case "StaffRollScene":
                 SceneManager.LoadScene("TitleScene");
                 break;
+            case "TutorialScene":
+                SceneManager.LoadScene("TitleScene");
+                break;
         }
+    }
+
+    public void GoGamePlay()
+    {
+        AudioManager.Instance.PlaySE("Decision", 0f);
+        SceneManager.LoadScene("GamePlayScene");
+    }
+
+    public void GoSaffRoll()
+    {
+        AudioManager.Instance.PlaySE("Decision", 0f);
+        SceneManager.LoadScene("StaffRollScene");
+    }
+
+    public void GoTrutorial()
+    {
+        AudioManager.Instance.PlaySE("Decision", 0f);
+        SceneManager.LoadScene("TutorialScene");
     }
 
 
@@ -60,6 +81,10 @@ public class ClickButtons : MonoBehaviour {
             SceneManager.LoadScene("StaffRollScene");
         }
         else if(nowButton == 2)
+        {
+            SceneManager.LoadScene("TutorialScene");
+        }
+        else if(nowButton == 3)
         {
             Application.Quit();
         }
