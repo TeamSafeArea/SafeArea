@@ -21,6 +21,7 @@ public class ClickButtons : MonoBehaviour {
         {
             if (nowSceneName == "GamePlayScene" || nowSceneName == "StaffRollScene")
             {
+                AudioManager.Instance.PlaySE("Decision", 0f);
                 SceneManager.LoadScene("TitleScene");
             }
         }
