@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
     private void Jump()
     {
 
-        if (!Input.GetKeyDown(KeyCode.Space)) return;
+        if ((Input.GetKeyDown(KeyCode.Space) == false) && (Input.GetMouseButtonDown(0) == false)) return;
 
         if (m_isJump == false)
         {
