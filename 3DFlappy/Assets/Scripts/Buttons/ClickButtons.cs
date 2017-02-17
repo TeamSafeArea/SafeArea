@@ -17,6 +17,13 @@ public class ClickButtons : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if (nowSceneName == "GamePlayScene" || nowSceneName == "StaffRollScene")
+            {
+                SceneManager.LoadScene("TitleScene");
+            }
+        }
 
     }
 
